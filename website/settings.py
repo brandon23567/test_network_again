@@ -1,6 +1,8 @@
 from pathlib import Path
 from datetime import timedelta
 import os
+import cloudinary
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +24,9 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework_simplejwt.token_blacklist",
     'rest_framework_simplejwt',
+
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -95,8 +100,16 @@ STATIC_ROOT = BASE_DIR / "static"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+cloudinary.config(
+    cloud_name = 'ddcvsdcdm',
+    api_key = '985629638667792',
+    api_secret = '2qK4waFr0Os4X78xz5t0M9sywAc'
+)
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 REST_FRAMEWORK = {
