@@ -55,7 +55,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'StrongestAvenger#23',
+        'HOST': 'db.gcpfmhoqcumvulrvxytk.supabase.co',
+        'PORT': '5432'
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
